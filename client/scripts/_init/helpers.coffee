@@ -13,9 +13,9 @@ class Meteor.View
     @_setEvents()
 
   render: ->
-    args = Array::slice.apply(arguments)
-    Meteor.render =>
-      @$el = Template[@template].apply(this, args)
+    args  = Array::slice.apply(arguments)
+    @el   = Meteor.render => Template[@template].apply(this, args)
+    @$el  = $(@el)
 
     return @
 
