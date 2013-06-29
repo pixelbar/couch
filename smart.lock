@@ -1,0 +1,15 @@
+{
+  "meteor": {},
+  "dependencies": {
+    "basePackages": {
+      "momentjs": {}
+    },
+    "packages": {
+      "momentjs": {
+        "git": "https://github.com/crapthings/meteor-momentjs.git",
+        "tag": "v2.0.0.1",
+        "commit": "2200ae0f0472164b7cc33dfd9b3ba729a7deb805"
+      }
+    }
+  }
+}
