@@ -3,5 +3,8 @@ class Meteor.App.Routers.App extends Backbone.Router
     '': 'home'
 
   home: ->
-    view = new Meteor.App.Views.Mutations()
-    $('.create-mutation').html view.render().el
+    index = new Meteor.App.Views.Mutations.Index(mutations: Meteor.Store.Mutations)
+    $('.container-fluid').html index.render().el
+
+    create = new Meteor.App.Views.Mutations.Create()
+    $('.create-mutation').html create.render().el

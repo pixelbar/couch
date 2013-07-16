@@ -1,6 +1,8 @@
 class App
   constructor: ->
     @Routers    = {}
-    @Views      = {}
+    @Views      =
+                  Mutations: {}
 
-Meteor.App = new App()
+Meteor.Store  = []
+Meteor.App    = new App()
