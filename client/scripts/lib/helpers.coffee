@@ -1,0 +1,55 @@
+# Helper classes
+class Meteor.View
+  constructor: ->
+    # set template
+    @_options           or= {}
+    @_options.template  = @template
+    @template           = Template[@template]
+
+    # set callbacks
+    _this = this
+    @template.rendered  = ->
+      _this.onRender?.apply(_this, arguments)
+    @template.created   = -> 
+      _this.onCreate?.apply(_this, arguments)
+    @template.destroyed = -> 
+      _this.onClose?.apply(_this, arguments)
+
+    # set events
+    @_setEvents()
+
+    @args = Array::slice.apply(arguments)
+    @initialize?.apply(this, @args)
+
+  render: ->
+    @el  = Meteor.render => @template.apply(this, @args)
+    return @
+
+  _setEvents: ->
+    eventsMap = {}
+    for e of @events
+      eventsMap[e] = => @[@events[e]].apply(this, arguments)
+
+    @template.events(eventsMap)
+
+
+class Meteor.CollectionView extends Meteor.View
+  constructor: ->
+    @args = Array::slice.apply(arguments)
+
+    @_options or= {}
+    @_setItemView()
+    super
+
+  _setItemView: ->
+    @_options.itemView  = new @itemView(@args[0])
+
+    _this = @_options.itemView
+    @_options.itemView.rendered  = ->
+      _this.onRender?.apply(_this, arguments)
+    @_options.itemView.created   = -> 
+      _this.onCreate?.apply(_this, arguments)
+    @_options.itemView.destroyed = -> 
+      _this.onClose?.apply(_this, arguments)
+
+

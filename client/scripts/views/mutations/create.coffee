@@ -10,7 +10,12 @@ class Meteor.App.Views.Mutations.Create extends Meteor.View
     description = $(t.find('.description'))
     amount			= $(t.find('.amount'))
 
-    Meteor.Store.Mutations.insert {description: description.val(), amount: amount.val()}
+    doc         =
+      description: description.val()
+      amount: amount.val()
+      status: 'pending'
+
+    Meteor.Store.Mutations.insert(doc)
     
     description.val('')
     amount.val('')
