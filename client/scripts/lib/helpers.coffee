@@ -26,12 +26,17 @@ class Meteor.View
     return @
 
   _setEvents: ->
-    eventsMap = {}
-    for e of @events
-      eventsMap[e] = => @[@events[e]].apply(this, arguments)
+    eventsMap     = {}
+    @_mappedEvents = _.toArray(@events)
+    @_methodCalled = 0
 
+    eventsMap[e] = _.bind(@[@events[e]], this) for e of @events
     @template.events(eventsMap)
 
+    _this = this
+    for helper of @templateHelpers
+      @template[helper] = ->
+        _this.templateHelpers[helper].call(_this, this)
 
 class Meteor.CollectionView extends Meteor.View
   constructor: ->

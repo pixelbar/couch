@@ -1,11 +1,23 @@
 <template name="mutation_item">
   <tr>
-    <td>{{date}}</td>
+    <td>{{getDate}}</td>
     <td>{{description}}</td>
     <td>{{by}}</td>
     <td>
       <span class="label">{{status}}</span>
     </td>
     <td>€{{amount}}</td>
+    <td>
+    	<div class="btn-group pull-right">
+    	    <a class="btn btn-success" href="#"><i class="icon-thumbs-up icon-white"></i> Approve</a>
+    	    <a class="btn btn-success dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+    	    <ul class="dropdown-menu">
+    	      <li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
+    	      <li><a href="#" class="remove"><i class="icon-trash"></i> Delete</a></li>
+    	      <li class="divider"></li>
+    	      <li><a href="#" class="open_receipt"><i class="i"></i> Open bon</a></li>
+    	    </ul>
+    	  </div>
+    </td>
   </tr>
 </template>
