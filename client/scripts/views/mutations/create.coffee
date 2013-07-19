@@ -1,8 +1,8 @@
 class Meteor.App.Views.Mutations.Create extends Meteor.View
   template: 'create_mutation'
   events:
-    'change input.fileuploader': 'storeFile'
-    'click button.btn': 'submit'
+    'change .fileuploader': 'storeFile'
+    'submit form': 'submit'
 
   initialize: ->
 
@@ -30,6 +30,9 @@ class Meteor.App.Views.Mutations.Create extends Meteor.View
       
       description.val('')
       amount.val('')
-      $(t.find('fileuploader')).val('')
+
+      control   = $(t.find('.fileuploader'))
+      control.replaceWith(control.clone())
+
       @fileId = ''
 
