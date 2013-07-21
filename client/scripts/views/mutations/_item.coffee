@@ -6,7 +6,7 @@ class Meteor.App.Views.Mutations.Item extends Meteor.View
   	'click .open_receipt': 'openReceipt'
 
   templateHelpers:
-  	getDate: (model) -> moment(model.date).calendar()
+  	getDate: -> moment(@date).calendar()
 
   initialize: (@options = {}) ->
 

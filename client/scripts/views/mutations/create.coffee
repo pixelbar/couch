@@ -4,6 +4,9 @@ class Meteor.App.Views.Mutations.Create extends Meteor.View
     'change .fileuploader': 'storeFile'
     'submit form': 'submit'
 
+  templateHelpers:
+    userLoggedIn: -> Meteor.user()
+
   initialize: ->
 
   storeFile: (e, t) ->
@@ -19,7 +22,7 @@ class Meteor.App.Views.Mutations.Create extends Meteor.View
     amount			= $(t.find('.amount'))
 
     if description.length > 0 and amount.length > 0 and @fileId?.length > 0
-      doc         =
+      doc       =
         description: description.val()
         amount: amount.val()
         status: 'pending'

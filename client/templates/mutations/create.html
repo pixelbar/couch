@@ -1,4 +1,5 @@
 <template name="create_mutation">
+  {{#if userLoggedIn}}
   <form class="form span9">
     <div class="input-prepend input-append">
       <span class="add-on">€</span>
@@ -9,4 +10,5 @@
     <hr />
     <button type="submit" class="btn btn-primary pull-right">Toevoegen</button>
   </form>
+  {{/if}}
 </template>

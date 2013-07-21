@@ -2,6 +2,7 @@ class App
   constructor: ->
     @Routers    = {}
     @Views      =
-                  Mutations: {}
+                  Mutations: 	{}
+                  Users:			{}
                   
 Meteor.App    = new App()

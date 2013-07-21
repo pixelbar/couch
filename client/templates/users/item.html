@@ -1,0 +1,19 @@
+<template name="user_item">
+  <tr>
+    <td>{{profile.name}}</td>
+    <td>€ {{profile.start}}</td>
+    <td>€ {{profile.spent}}</td>
+    <td>€ {{credit}}</td>
+    {{#if isAdmin}}
+    <td>
+    	<div class="btn-group pull-right">
+    	    <a class="btn btn-success" href="#">Edit</a>
+    	    <a class="btn btn-success dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+    	    <ul class="dropdown-menu">
+    	      <li><a href="#" class="remove"><i class="icon-trash"></i> Delete</a></li>	
+    	    </ul>
+    	  </div>
+    </td>
+    {{/if}}
+  </tr>
+</template>

@@ -17,6 +17,7 @@ class Meteor.View
 
     # set events
     @_setEvents()
+    @_setHelpers()
 
     @args = Array::slice.apply(arguments)
     @initialize?.apply(this, @args)
@@ -33,10 +34,10 @@ class Meteor.View
     eventsMap[e] = _.bind(@[@events[e]], this) for e of @events
     @template.events(eventsMap)
 
+  _setHelpers: ->
     _this = this
     for helper of @templateHelpers
-      @template[helper] = ->
-        _this.templateHelpers[helper].call(_this, this)
+      @template[helper] = @templateHelpers[helper]
 
 class Meteor.CollectionView extends Meteor.View
   constructor: ->
