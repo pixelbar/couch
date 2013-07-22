@@ -1,0 +1,17 @@
+<template name="user_item_edit">
+  <tr>
+    <td>{{profile.name}}</td>
+    <td>€ <input type="text" value="{{profile.start}}" class="input_start" /></td>
+    <td>€ <input type="text" value="{{profile.spent}}" class="input_spent" /></td>
+    <td>€ {{credit}}</td>
+    <td>
+    	<div class="btn-group pull-right">
+    	    <a class="btn btn-success save" href="#">Save</a>
+    	    <a class="btn btn-success dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+    	    <ul class="dropdown-menu">
+    	      <li><a href="#" class="cancel"> Cancel</a></li>	
+    	    </ul>
+    	  </div>
+    </td>
+  </tr>
+</template>
