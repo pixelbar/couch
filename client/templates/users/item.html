@@ -1,8 +1,8 @@
 <template name="user_item">
   <tr data-user="{{_id}}">
     <td>{{profile.name}}</td>
-    <td>€ {{profile.start}}</td>
-    <td>€ {{profile.spent}}</td>
+    <td>€ {{getStart}}</td>
+    <td>€ {{getSpent}}</td>
     <td>€ {{credit}}</td>
     {{#if isAdmin}}
     <td>

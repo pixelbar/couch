@@ -24,9 +24,10 @@ class Meteor.App.Views.Mutations.Create extends Meteor.View
     if description.length > 0 and amount.length > 0 and @fileId?.length > 0
       doc       =
         description: description.val()
-        amount: amount.val()
-        status: 'pending'
+        amount: parseInt(amount.val())
         file: @fileId
+        user_id: Meteor.userId()
+        approved: false
         date: moment().format()
 
       Meteor.Store.Mutations.insert(doc)

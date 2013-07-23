@@ -1,0 +1,22 @@
+<template name="mutation_item_edit">
+  <tr>
+    <td>{{getDate}}</td>
+    <td><input class="description" value="{{description}}" type="text" /></td>
+    <td>{{by}}</td>
+    <td>
+      <span class="label {{#if approved}}label-success{{/if}}">{{getStatus}}</span>
+    </td>
+    <td>€<input class="amount" value="{{amount}}" type="text" /></td>
+
+    <td>
+      <div class="btn-group pull-right">
+          <a class="btn btn-success save" href="#">Save</a>
+          <a class="btn btn-success dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#" class="cancel"> Cancel</a></li> 
+          </ul>
+        </div>
+    </td>
+
+  </tr>
+</template>

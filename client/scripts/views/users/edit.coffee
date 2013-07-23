@@ -16,8 +16,8 @@ class Meteor.App.Views.Users.Edit extends Meteor.View
   	e.preventDefault()
   	Meteor.users.update({_id: t.data._id}, {
   		$set:
-  			'profile.start': $(t.find('.input_start')).val()
-  			'profile.spent': $(t.find('.input_spent')).val()
+  			'profile.start': parseInt($(t.find('.input_start')).val())
+  			'profile.spent': parseInt($(t.find('.input_spent')).val())
   	})
-  	
+
   	Meteor.App.router.navigate('/users', {trigger: true})

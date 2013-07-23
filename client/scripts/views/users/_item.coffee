@@ -11,6 +11,8 @@ class Meteor.App.Views.Users.Item extends Meteor.View
   			true
   		else
   			false
+  	getStart: -> @profile.start
+  	getSpent: -> @profile.spent
 
   editPerson: (e, t) ->
   	e.preventDefault()
